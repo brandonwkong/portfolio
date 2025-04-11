@@ -25,12 +25,13 @@ const projects: Project[] = [
     github: "https://github.com/brandonwkong/JARVIS",
   },
   {
-    id: 2,
-    title: "Smart Todo Application",
-    image: "/mockuptodo_resized.png?height=400&width=600",
-    hover: "Full Stack: Smart Todo App",
-    description: "A modern todo app with real-time updates and task categorization. Built with React and Node.js.",
-    github: "https://github.com/brandonwkong/To-Do-App",
+    id: 2 ,
+    title: "Cliff Detection System",
+    image: "/cliff.png?height=400&width=600",
+    hover: "Computer Vision Project: Cliff Detection",
+    description:
+      "A sophisticated computer vision system using PyTorch and OpenCV to identify and analyze cliff formations.",
+    github: "https://github.com/brandonwkong/CLIF",
   },
   {
     id: 3,
@@ -42,12 +43,11 @@ const projects: Project[] = [
   },
   {
     id: 4,
-    title: "Cliff Detection System",
-    image: "/cliffimage_resized.png?height=400&width=600",
-    hover: "Computer Vision Project: Cliff Detection",
-    description:
-      "A sophisticated computer vision system using PyTorch and OpenCV to identify and analyze cliff formations.",
-    github: "https://github.com/brandonwkong/CLIF",
+    title: "Smart Todo Application",
+    image: "/mockuptodo_resized.png?height=400&width=600",
+    hover: "Full Stack: Smart Todo App",
+    description: "A modern todo app with real-time updates and task categorization. Built with React and Node.js.",
+    github: "https://github.com/brandonwkong/To-Do-App",
   },
   {
     id: 5,
