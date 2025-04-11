@@ -6,15 +6,23 @@ import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } f
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight, Github, ExternalLink } from "lucide-react"
 
-const projects = [
+interface Project {
+  id: number
+  title: string
+  image: string
+  hover: string
+  description: string
+  github: string
+}
+
+const projects: Project[] = [
   {
     id: 1,
-    title: "Cliff Detection System",
-    image: "/cliffimage_resized.png?height=400&width=600",
-    hover: "Computer Vision Project: Cliff Detection",
-    description:
-      "A sophisticated computer vision system using PyTorch and OpenCV to identify and analyze cliff formations.",
-    github: "https://github.com/brandonwkong/CLIF",
+    title: "JARVIS: My Personal Assistant",
+    image: "/jarvis.png?height=400&width=600",
+    hover: "JARVIS: My Personal Assistant",
+    description: "A RAG-powered personal assistant that knows everything about me.",
+    github: "https://github.com/brandonwkong/JARVIS",
   },
   {
     id: 2,
@@ -34,11 +42,12 @@ const projects = [
   },
   {
     id: 4,
-    title: "JARVIS: My Personal Assistant",
-    image: "/personal_assistant.jpg?height=400&width=600",
-    hover: "JARVIS: My Personal Assistant",
-    description: "A RAG-powered personal assistant that knows everything about me.",
-    github: "https://github.com/brandonwkong/JARVIS",
+    title: "Cliff Detection System",
+    image: "/cliffimage_resized.png?height=400&width=600",
+    hover: "Computer Vision Project: Cliff Detection",
+    description:
+      "A sophisticated computer vision system using PyTorch and OpenCV to identify and analyze cliff formations.",
+    github: "https://github.com/brandonwkong/CLIF",
   },
   {
     id: 5,
@@ -59,12 +68,11 @@ const projects = [
 ]
 
 export default function Portfolio() {
-  const [selectedProject, setSelectedProject] = useState(null)
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null)
   const [isOpen, setIsOpen] = useState(false)
-  const carouselRef = useRef(null)
+  const carouselRef = useRef<HTMLDivElement>(null)
   const [scrollPosition, setScrollPosition] = useState(0)
 
-  // Auto scroll carousel
   useEffect(() => {
     const interval = setInterval(() => {
       if (carouselRef.current) {
@@ -88,7 +96,7 @@ export default function Portfolio() {
     return () => clearInterval(interval)
   }, [scrollPosition])
 
-  const handleScroll = (direction) => {
+  const handleScroll = (direction: 'left' | 'right') => {
     if (carouselRef.current) {
       const { scrollLeft, clientWidth } = carouselRef.current
       const scrollAmount = direction === "left" ? -clientWidth / 3 : clientWidth / 3
@@ -102,7 +110,7 @@ export default function Portfolio() {
     }
   }
 
-  const openProjectModal = (project) => {
+  const openProjectModal = (project: Project) => {
     setSelectedProject(project)
     setIsOpen(true)
   }
@@ -119,7 +127,7 @@ export default function Portfolio() {
           {/* Navigation buttons */}
           <button
             onClick={() => handleScroll("left")}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background p-2 rounded-full shadow-lg"
+            className="absolute -left-4 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background p-2 rounded-full shadow-lg"
             aria-label="Previous projects"
           >
             <ChevronLeft className="h-6 w-6" />
@@ -127,7 +135,7 @@ export default function Portfolio() {
 
           <button
             onClick={() => handleScroll("right")}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background p-2 rounded-full shadow-lg"
+            className="absolute -right-4 top-1/2 -translate-y-1/2 z-10 bg-background/80 hover:bg-background p-2 rounded-full shadow-lg"
             aria-label="Next projects"
           >
             <ChevronRight className="h-6 w-6" />
@@ -140,14 +148,14 @@ export default function Portfolio() {
             style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
             onScroll={(e) => setScrollPosition(e.currentTarget.scrollLeft)}
           >
-            <div className="flex gap-6">
-              {projects.map((project) => (
+            <div className="flex gap-8">
+              {projects.slice(0, 4).map((project) => ( // Only show first 4 projects
                 <div
                   key={project.id}
-                  className="min-w-[300px] md:min-w-[350px] snap-start portfolio-card"
+                  className="min-w-[400px] md:min-w-[450px] snap-start portfolio-card" // Increased width
                   onClick={() => openProjectModal(project)}
                 >
-                  <div className="h-64 relative rounded-lg overflow-hidden">
+                  <div className="h-80 relative rounded-lg overflow-hidden"> 
                     <Image
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
@@ -155,9 +163,8 @@ export default function Portfolio() {
                       className="object-cover"
                     />
                     <div className="portfolio-overlay">
-                      <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                      <p className="text-white/80">{project.hover}</p>
-                      <span className="mt-4 text-sm text-white/60">Click to learn more</span>
+                      <h3 className="text-2xl font-bold mb-3">{project.title}</h3> 
+                      <span className="mt-4 text-base text-white/60">Click to learn more</span> 
                     </div>
                   </div>
                 </div>
@@ -170,13 +177,15 @@ export default function Portfolio() {
       {/* Project Modal */}
       <Dialog open={isOpen} onOpenChange={setIsOpen}>
         {selectedProject && (
-          <DialogContent className="sm:max-w-[600px]">
+          <DialogContent className="sm:max-w-[700px]">
             <DialogHeader>
-              <DialogTitle>{selectedProject.title}</DialogTitle>
-              <DialogDescription>{selectedProject.description}</DialogDescription>
+              <DialogTitle className="text-2xl">{selectedProject.title}</DialogTitle>
+              <DialogDescription className="text-lg">
+                {selectedProject.description}
+              </DialogDescription>
             </DialogHeader>
 
-            <div className="relative h-64 w-full my-4 rounded-lg overflow-hidden">
+            <div className="relative h-80 w-full my-4 rounded-lg overflow-hidden">
               <Image
                 src={selectedProject.image || "/placeholder.svg"}
                 alt={selectedProject.title}
@@ -186,16 +195,16 @@ export default function Portfolio() {
             </div>
 
             <div className="flex justify-end gap-4 mt-4">
-              <Button variant="outline" asChild>
+              <Button variant="outline" size="lg" asChild>
                 <a href={selectedProject.github} target="_blank" rel="noopener noreferrer">
-                  <Github className="mr-2 h-4 w-4" />
+                  <Github className="mr-2 h-5 w-5" />
                   GitHub
                 </a>
               </Button>
-              <Button asChild>
+              <Button size="lg" asChild>
                 <a href="#" target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="mr-2 h-4 w-4" />
-                  Live Demo
+                  <ExternalLink className="mr-2 h-5 w-5" />
+                  Live Demo (Coming Soon!)
                 </a>
               </Button>
             </div>

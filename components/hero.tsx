@@ -75,10 +75,6 @@ export default function Hero() {
             <span className="animate-blink">|</span>
           </span>
         </div>
-
-        <button className="bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full transition-all transform hover:scale-105">
-          View My Work
-        </button>
       </div>
     </section>
   )
