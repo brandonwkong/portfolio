@@ -1,8 +1,26 @@
 import Image from "next/image"
+import {
+  SiPython,
+  SiJavascript,
+  SiReact,
+  SiTensorflow,
+  SiPytorch,
+  SiOpenai,
+} from "react-icons/si"
+
+
+const techIcons = [
+  { name: "Python", icon: SiPython },
+  { name: "JavaScript", icon: SiJavascript },
+  { name: "React", icon: SiReact },
+  { name: "TensorFlow", icon: SiTensorflow },
+  { name: "PyTorch", icon: SiPytorch },
+  { name: "AI", icon: SiOpenai },
+]
 
 export default function About() {
   return (
-    <section id="about-me" className="py-20 bg-background">
+    <section id="about-me" className="py-20">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold mb-12 text-center">About Me</h2>
 
@@ -20,16 +38,22 @@ export default function About() {
             </p>
 
             <div className="flex flex-wrap gap-3">
-              {["Python", "JavaScript", "React", "TensorFlow", "PyTorch", "Computer Vision"].map((skill) => (
-                <span key={skill} className="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm">
-                  {skill}
+              {techIcons.map(({ name, icon: Icon }) => (
+                <span
+                  key={name}
+                  className="bg-primary/10 text-primary px-4 py-2 rounded-full text-sm flex items-center gap-2"
+                >
+                  <Icon size={18} />
+                  <span className="sr-only">{name}</span> {/* accessible but hidden */}
                 </span>
               ))}
             </div>
 
-            <button className="mt-8 bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full transition-all transform hover:scale-105">
-              Download CV
-            </button>
+            <a href="/Resume_BrandonKongAI.pdf" download>
+              <button className="mt-8 bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full transition-all transform hover:scale-105">
+                Download CV
+              </button>
+            </a>
           </div>
 
           <div className="flex justify-center">

@@ -20,10 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-          {children}
-          <Analytics />
-        </ThemeProvider>
+        <div className="min-h-screen bg-gradient-radial-strong text-white">
+          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+            {children}
+            <Analytics />
+          </ThemeProvider>
+        </div>
       </body>
     </html>
   )

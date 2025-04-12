@@ -116,7 +116,7 @@ export default function Portfolio() {
   }
 
   return (
-    <section id="portfolio" className="py-20 bg-secondary/20">
+    <section id="portfolio" className="py-20">
       <div className="container mx-auto px-4">
         <h2 className="text-4xl font-bold mb-4 text-center">Portfolio</h2>
         <p className="text-muted-foreground text-center mb-12 max-w-2xl mx-auto">
