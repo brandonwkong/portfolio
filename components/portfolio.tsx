@@ -19,7 +19,7 @@ const projects: Project[] = [
   {
     id: 1,
     title: "JARVIS: My Personal Assistant",
-    image: "/jarvis.png?height=400&width=600",
+    image: "/jarvis2.png?height=400&width=600",
     hover: "JARVIS: My Personal Assistant",
     description: "A RAG-powered personal assistant that knows everything about me.",
     github: "https://github.com/brandonwkong/JARVIS",
@@ -35,14 +35,22 @@ const projects: Project[] = [
   },
   {
     id: 3,
-    title: "Pokemon Search Engine",
+    title: "ClassiMail: Your Personal Email Classifier",
+    image: "/classimail.png?height=400&width=600",
+    hover: "ClassiMail: Your Personal Email Classifier",
+    description: "A email classifier tailored toward filtering job related emails.",
+    github: "https://github.com/brandonwkong/ClassiMail",
+  },
+  {
+    id: 4,
+    title: "PokeSearch: A Comprehensive Pokemon Web Scraper",
     image: "/pokesearch_resized.png?height=400&width=600",
     hover: "PokeSearch: A Comprehensive Pokemon Web Scraper",
     description: "A powerful Pokemon filter/search engine built with modern web technologies.",
     github: "https://github.com/brandonwkong/PokeSearch",
   },
   {
-    id: 4,
+    id: 5,
     title: "Smart Todo Application",
     image: "/mockuptodo_resized.png?height=400&width=600",
     hover: "Full Stack: Smart Todo App",
@@ -50,7 +58,7 @@ const projects: Project[] = [
     github: "https://github.com/brandonwkong/To-Do-App",
   },
   {
-    id: 5,
+    id: 6,
     title: "Project 5",
     image: "/coming_soon.png?height=400&width=600",
     hover: "In Development",
@@ -58,7 +66,7 @@ const projects: Project[] = [
     github: "https://github.com/yourusername/project5",
   },
   {
-    id: 6,
+    id: 7,
     title: "Project 6",
     image: "/coming_soon.png?height=400&width=600",
     hover: "Coming Soon",
