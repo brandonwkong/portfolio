@@ -5,6 +5,7 @@ import Image from "next/image"
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
 import { Button } from "@/components/ui/button"
 import { ChevronLeft, ChevronRight, Github, ExternalLink } from "lucide-react"
+import Link from "next/link"
 
 interface Project {
   id: number
@@ -13,11 +14,21 @@ interface Project {
   hover: string
   description: string
   github: string
+  liveDemo?: string
 }
 
 const projects: Project[] = [
   {
     id: 1,
+    title: "ClassiMail: Your Personal Email Classifier",
+    image: "/classimail.png?height=400&width=600",
+    hover: "ClassiMail: Your Personal Email Classifier",
+    description: "A email classifier tailored toward filtering job related emails.",
+    github: "https://github.com/brandonwkong/ClassiMail",
+    liveDemo: "https://drive.google.com/file/d/129fDm8NhaXMkF5i6ZonVf7cuJiil6Y-q/view?usp=sharing",
+  },
+  {
+    id: 2,
     title: "JARVIS: My Personal Assistant",
     image: "/jarvis2.png?height=400&width=600",
     hover: "JARVIS: My Personal Assistant",
@@ -25,7 +36,7 @@ const projects: Project[] = [
     github: "https://github.com/brandonwkong/JARVIS",
   },
   {
-    id: 2 ,
+    id: 3,
     title: "Cliff Detection System",
     image: "/cliff.png?height=400&width=600",
     hover: "Computer Vision Project: Cliff Detection",
@@ -34,28 +45,20 @@ const projects: Project[] = [
     github: "https://github.com/brandonwkong/CLIF",
   },
   {
-    id: 3,
-    title: "ClassiMail: Your Personal Email Classifier",
-    image: "/classimail.png?height=400&width=600",
-    hover: "ClassiMail: Your Personal Email Classifier",
-    description: "A email classifier tailored toward filtering job related emails.",
-    github: "https://github.com/brandonwkong/ClassiMail",
+    id: 4,
+    title: "MNIST Neural Net",
+    image: "/MNIST_NN.png?height=400&width=600",
+    hover: "Full Stack: Smart Todo App",
+    description: "A modern todo app with real-time updates and task categorization. Built with React and Node.js.",
+    github: "https://github.com/brandonwkong/To-Do-App",
   },
   {
-    id: 4,
+    id: 5,
     title: "PokeSearch: A Comprehensive Pokemon Web Scraper",
     image: "/pokesearch_resized.png?height=400&width=600",
     hover: "PokeSearch: A Comprehensive Pokemon Web Scraper",
     description: "A powerful Pokemon filter/search engine built with modern web technologies.",
     github: "https://github.com/brandonwkong/PokeSearch",
-  },
-  {
-    id: 5,
-    title: "Smart Todo Application",
-    image: "/mockuptodo_resized.png?height=400&width=600",
-    hover: "Full Stack: Smart Todo App",
-    description: "A modern todo app with real-time updates and task categorization. Built with React and Node.js.",
-    github: "https://github.com/brandonwkong/To-Do-App",
   },
   {
     id: 6,
@@ -157,13 +160,10 @@ export default function Portfolio() {
             onScroll={(e) => setScrollPosition(e.currentTarget.scrollLeft)}
           >
             <div className="flex gap-8">
-              {projects.slice(0, 4).map((project) => ( // Only show first 4 projects
-                <div
-                  key={project.id}
-                  className="min-w-[400px] md:min-w-[450px] snap-start portfolio-card" // Increased width
-                  onClick={() => openProjectModal(project)}
-                >
-                  <div className="h-80 relative rounded-lg overflow-hidden"> 
+            {projects.slice(0, 5).map((project) => ( // Only show first 4 projects
+              <Link key={project.id} href={`/projects/${project.id}`} passHref>
+                <div className="min-w-[400px] md:min-w-[450px] snap-start portfolio-card" onClick={() => openProjectModal(project)}>
+                  <div className="h-80 relative rounded-lg overflow-hidden">
                     <Image
                       src={project.image || "/placeholder.svg"}
                       alt={project.title}
@@ -171,12 +171,13 @@ export default function Portfolio() {
                       className="object-cover"
                     />
                     <div className="portfolio-overlay">
-                      <h3 className="text-2xl font-bold mb-3">{project.title}</h3> 
-                      <span className="mt-4 text-base text-white/60">Click to learn more</span> 
+                      <h3 className="text-2xl font-bold mb-3">{project.title}</h3>
+                      <span className="mt-4 text-base text-white/60">Click to learn more</span>
                     </div>
                   </div>
                 </div>
-              ))}
+              </Link>
+            ))}
             </div>
           </div>
         </div>
@@ -210,10 +211,14 @@ export default function Portfolio() {
                 </a>
               </Button>
               <Button size="lg" asChild>
-                <a href="#" target="_blank" rel="noopener noreferrer">
-                  <ExternalLink className="mr-2 h-5 w-5" />
-                  Live Demo (Coming Soon!)
-                </a>
+                {selectedProject?.liveDemo ? (
+                  <a href={selectedProject.liveDemo} target="_blank" rel="noopener noreferrer">
+                    <ExternalLink className="mr-2 h-5 w-5" />
+                    Live Demo
+                  </a>
+                ) : (
+                  <span className="text-gray-400">Live Demo (Coming Soon!)</span>
+                )}
               </Button>
             </div>
           </DialogContent>
