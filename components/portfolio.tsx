@@ -17,7 +17,7 @@ interface Project {
   liveDemo?: string
 }
 
-const projects: Project[] = [
+export const projects: Project[] = [
   {
     id: 1,
     title: "ClassiMail: Your Personal Email Classifier",
