@@ -11,15 +11,15 @@ export function Footer() {
             <p className="text-gray-400 mt-2">AI/Full Stack Software Engineer</p>
           </div>
           <div className="flex space-x-4">
-            <Link href="https://github.com/yourusername" className="hover:text-primary transition-colors">
+            <Link href="https://github.com/brandonwkong" className="hover:text-primary transition-colors">
               <Github className="h-6 w-6" />
               <span className="sr-only">GitHub</span>
             </Link>
-            <Link href="https://linkedin.com/in/yourusername" className="hover:text-primary transition-colors">
+            <Link href="https://www.linkedin.com/in/brandon-kong-24b9a6285/" className="hover:text-primary transition-colors">
               <Linkedin className="h-6 w-6" />
               <span className="sr-only">LinkedIn</span>
             </Link>
-            <Link href="mailto:your.email@example.com" className="hover:text-primary transition-colors">
+            <Link href="mailto:b2kong@uwaterloo.ca" className="hover:text-primary transition-colors">
               <Mail className="h-6 w-6" />
               <span className="sr-only">Email</span>
             </Link>

@@ -23,7 +23,7 @@ export const projects: Project[] = [
     title: "ClassiMail: Your Personal Email Classifier",
     image: "/classimail.png?height=400&width=600",
     hover: "ClassiMail: Your Personal Email Classifier",
-    description: "A email classifier tailored toward filtering job related emails.",
+    description: "Built a full-stack Gmail classifier using OpenAI to categorize job-related emails with real-time filtering and sender extraction.",
     github: "https://github.com/brandonwkong/ClassiMail",
     liveDemo: "https://drive.google.com/file/d/129fDm8NhaXMkF5i6ZonVf7cuJiil6Y-q/view?usp=sharing",
   },
@@ -32,7 +32,7 @@ export const projects: Project[] = [
     title: "JARVIS: My Personal Assistant",
     image: "/jarvis2.png?height=400&width=600",
     hover: "JARVIS: My Personal Assistant",
-    description: "A RAG-powered personal assistant that knows everything about me.",
+    description: "Python-based AI assistant with RAG and SQLite, designed for context-aware responses and continuous learning.",
     github: "https://github.com/brandonwkong/JARVIS",
   },
   {
@@ -40,8 +40,7 @@ export const projects: Project[] = [
     title: "Cliff Detection System",
     image: "/cliff.png?height=400&width=600",
     hover: "Computer Vision Project: Cliff Detection",
-    description:
-      "A sophisticated computer vision system using PyTorch and OpenCV to identify and analyze cliff formations.",
+    description: "Computer vision system built with PyTorch and OpenCV to detect and analyze two-hand gestures in real time.",
     github: "https://github.com/brandonwkong/CLIF",
   },
   {
@@ -49,9 +48,9 @@ export const projects: Project[] = [
     title: "MNIST Neural Net",
     image: "/MNIST_NN.png?height=400&width=600",
     hover: "Full Stack: Smart Todo App",
-    description: "A modern todo app with real-time updates and task categorization. Built with React and Node.js.",
+    description: "Implemented a neural network from scratch with NumPy to classify MNIST digits using backpropagation and optimization.",
     github: "https://github.com/brandonwkong/To-Do-App",
-  },
+  },  
   {
     id: 5,
     title: "PokeSearch: A Comprehensive Pokemon Web Scraper",
