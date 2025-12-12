@@ -8,7 +8,7 @@ import { ChevronLeft, ChevronRight, Github, ExternalLink } from "lucide-react"
 import Link from "next/link"
 
 interface Project {
-  id: number
+  id: number  
   title: string
   image: string
   hover: string
