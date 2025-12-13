@@ -27,7 +27,7 @@
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
+    --background: 0 0% 0%;
     --foreground: 210 40% 98%;
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
@@ -54,7 +54,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
   }
 }
 
@@ -137,4 +137,21 @@
 
 ::-webkit-scrollbar-thumb:hover {
   @apply bg-primary;
+}
+
+.bg-gradient-black-gray {
+  background:
+    linear-gradient(
+      to bottom,
+      transparent 0%,
+      #0b0b0b 35%,
+      #161616 60%,
+      #2a2a2a 100%
+    ),
+    #000000;
+}
+
+
+html {
+  background-color: #000000;
 }

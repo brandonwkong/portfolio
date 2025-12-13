@@ -37,7 +37,7 @@ const companies: Company[] = [
   {
     name: "University of Waterloo",
     logo: "/vip.png",
-    link: "https://vip.uwaterloo.ca/",
+    link: "https://vip.uwaterloo.ca/",  
     description: "Satellite imagery and CV algorithms",
     role: "Software Developer",
   },
@@ -47,9 +47,13 @@ export default function Experience() {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
 
   return (
-    <main className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-10">
+    <section id="experience" className="py-20 bg-transparent">
 
-      <div className="container mx-auto max-w-6xl">
+
+
+
+      <div className="w-full px-8 md:px-12">
+
         <h2 className="text-4xl font-bold mb-12 text-center">
             My Experiences
         </h2>
@@ -65,10 +69,10 @@ export default function Experience() {
               onMouseEnter={() => setHoveredIndex(index)}
               onMouseLeave={() => setHoveredIndex(null)}
             >
-              <div className="absolute inset-0 rounded-lg bg-cyan-500/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute inset-0 rounded-lg bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div
-                className={`relative rounded-lg border border-slate-800 bg-slate-900/50 p-3 backdrop-blur-sm transition-all duration-300 group-hover:border-cyan-500/50 group-hover:shadow-lg group-hover:shadow-cyan-500/20 ${
-                  hoveredIndex === index ? "h-24 w-48 md:h-28 md:w-56 scale-110" : "h-16 w-32 md:h-20 md:w-40"
+                className={`relative rounded-lg border border-slate-800 bg-slate-900/50 p-3 backdrop-blur-sm transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-lg group-hover:border-primary/20 ${
+                  hoveredIndex === index ? "h-32 w-64 md:h-36 md:w-72 scale-110" : "h-24 w-48 md:h-28 md:w-56"
                 }`}
               >
                 <Image
@@ -80,18 +84,18 @@ export default function Experience() {
               </div>
 
               <div
-                className={`absolute -bottom-20 left-1/2 -translate-x-1/2 w-48 rounded-lg border border-cyan-500/30 bg-slate-900/95 p-3 backdrop-blur-sm transition-all duration-300 ${
+                className={`absolute -bottom-28 left-1/2 -translate-x-1/2 w-48 rounded-lg border border-primary/30 bg-slate-900/95 p-3 backdrop-blur-sm transition-all duration-300 ${
                   hoveredIndex === index ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
                 }`}
               >
-                <div className="text-xs text-cyan-400 font-semibold mb-1">{company.role}</div>
+                <div className="text-xs text-primary font-semibold mb-1">{company.role}</div>
                 <div className="text-xs text-slate-300">{company.description}</div>
-                <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-4 border-l-transparent border-r-transparent border-b-cyan-500/30" />
+                <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-4 border-l-transparent border-r-transparent border-b-primary/30" />
               </div>
             </Link>
           ))}
         </div>
       </div>
-    </main>
+    </section>
   )
 }
