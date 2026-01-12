@@ -49,7 +49,7 @@ export default function About() {
               ))}
             </div>
 
-            <a href="/Resume_BrandonKongAI.pdf" download>
+            <a href="/Resume_BrandonKong.pdf" download>
               <button className="mt-8 bg-primary hover:bg-primary/90 text-white font-bold py-3 px-8 rounded-full transition-all transform hover:scale-105">
                 Download CV
               </button>
