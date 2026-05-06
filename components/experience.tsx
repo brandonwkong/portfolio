@@ -13,6 +13,13 @@ interface Company {
 }
 
 const companies: Company[] = [
+    {
+    name: "Royal Bank of Canada",
+    logo: "/rbc.jpg",
+    link: "https://www.rbc.com",
+    description: "GenAI systems + ML pipelines",
+    role: "AI Intern",
+  },
   {
     name: "Rogers Communications",
     logo: "/rogers.png",

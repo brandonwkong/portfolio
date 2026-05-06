@@ -20,12 +20,12 @@ interface Project {
 export const projects: Project[] = [
   {
     id: 1,
-    title: "ClassiMail: Your Personal Email Classifier",
+    title: "ClassiMail: Email Classifier + Recommendation System",
     image: "/classimail.png?height=400&width=600",
-    hover: "ClassiMail: Your Personal Email Classifier",
-    description: "Built a full-stack Gmail classifier using OpenAI to categorize job-related emails with real-time filtering and sender extraction.",
+    hover: "ClassiMail: Email Classifier + Recommendation System",
+    description: "Built a full-stack Gmail classifier using OpenAI to categorize job-related emails with real-time filtering and sender extraction. Introduced a trained PyTorch model to predict email relevance and engagement from engineered features, improving prioritization accuracy.",
     github: "https://github.com/brandonwkong/ClassiMail",
-    liveDemo: "https://drive.google.com/file/d/129fDm8NhaXMkF5i6ZonVf7cuJiil6Y-q/view?usp=sharing",
+    liveDemo: "https://drive.google.com/file/d/1CwpzmS7WAL7apENXoomJolU38X7EUD08/view?usp=sharing",
   },
   {
     id: 2,
