@@ -29,6 +29,14 @@ export const projects: Project[] = [
   },
   {
     id: 2,
+    title: "HealthAI: Agentic Healthcare + Triage System",
+    image: "/healthai.png?height=400&width=600",
+    hover: "HealthAI: Agentic Healthcare + Triage System",
+    description: "Built an agentic healthcare intake and triage system using LangGraph to orchestrate multi-step patient workflows with deterministic branching, safety gating, and MCP-based tool execution. Integrated LlamaIndex-powered RAG retrieval to ground triage decisions in medical knowledge and developed post-triage automation for alerts, logging, and appointment scheduling.",
+    github: "https://github.com/brandonwkong/HealthAI",
+  },
+  {
+    id: 3,
     title: "JARVIS: My Personal Assistant",
     image: "/jarvis2.png?height=400&width=600",
     hover: "JARVIS: My Personal Assistant",
@@ -36,7 +44,7 @@ export const projects: Project[] = [
     github: "https://github.com/brandonwkong/JARVIS",
   },
   {
-    id: 3,
+    id: 4,
     title: "Cliff Detection System",
     image: "/cliff.png?height=400&width=600",
     hover: "Computer Vision Project: Cliff Detection",
@@ -44,21 +52,13 @@ export const projects: Project[] = [
     github: "https://github.com/brandonwkong/CLIF",
   },
   {
-    id: 4,
+    id: 5,
     title: "MNIST Neural Net",
     image: "/MNIST_NN.png?height=400&width=600",
     hover: "Full Stack: Smart Todo App",
     description: "Implemented a neural network from scratch with NumPy to classify MNIST digits using backpropagation and optimization.",
     github: "https://github.com/brandonwkong/To-Do-App",
   },  
-  {
-    id: 5,
-    title: "PokeSearch: A Comprehensive Pokemon Web Scraper",
-    image: "/pokesearch_resized.png?height=400&width=600",
-    hover: "PokeSearch: A Comprehensive Pokemon Web Scraper",
-    description: "A powerful Pokemon filter/search engine built with modern web technologies.",
-    github: "https://github.com/brandonwkong/PokeSearch",
-  },
   {
     id: 6,
     title: "Project 5",
