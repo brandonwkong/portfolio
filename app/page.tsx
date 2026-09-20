@@ -1,22 +1,41 @@
-import Navbar from "@/components/navbar"
-import Hero from "@/components/hero"
-import About from "@/components/about"
-import Portfolio from "@/components/portfolio"
+"use client"
+
+import { useState } from "react"
+import Navbar, { type Tab } from "@/components/navbar"
 import Experience from "@/components/experience"
-import {Footer} from "@/components/footer"
+import Portfolio from "@/components/portfolio"
 
 export default function Home() {
+  const [active, setActive] = useState<Tab>("experience")
+
   return (
-    <main className="min-h-screen">
-      <Hero />
-      <section id="work" className="py-20">
-        <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-8">
-          <Experience />
-          <Portfolio />
-        </div>
-      </section>
-      <About />
-      <Footer />
+    <main className="min-h-screen bg-black text-white">
+      <Navbar active={active} onChange={setActive} />
+
+      <div className="mx-auto max-w-2xl px-6 py-16">
+        <h1 className="text-2xl font-semibold">Brandon Kong</h1>
+        <p className="mt-2 text-white/50">Computer Engineering student at the University of Waterloo.</p>
+
+        <div className="mt-12">{active === "experience" ? <Experience /> : <Portfolio />}</div>
+
+        <footer className="mt-16 flex gap-6 border-t border-white/10 pt-8 text-sm text-white/40">
+          <a href="https://github.com/brandonwkong" className="hover:text-white transition-colors">
+            GitHub
+          </a>
+          <a
+            href="https://www.linkedin.com/in/brandon-kong-24b9a6285/"
+            className="hover:text-white transition-colors"
+          >
+            LinkedIn
+          </a>
+          <a href="mailto:b2kong@uwaterloo.ca" className="hover:text-white transition-colors">
+            Email
+          </a>
+          <a href="/Resume_BrandonKong.pdf" download className="hover:text-white transition-colors">
+            Resume
+          </a>
+        </footer>
+      </div>
     </main>
   )
 }

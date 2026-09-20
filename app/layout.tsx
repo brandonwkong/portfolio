@@ -2,8 +2,7 @@ import type React from "react"
 import "@/app/globals.css"
 import { Inter } from "next/font/google"
 import { ThemeProvider } from "@/components/theme-provider"
-import Starfield from "@/components/starfield"
-import { Analytics } from "@vercel/analytics/react";
+import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const inter = Inter({ subsets: ["latin"] })
@@ -11,7 +10,6 @@ const inter = Inter({ subsets: ["latin"] })
 export const metadata = {
   title: "Brandon Kong | Portfolio",
   description: "Computer Engineering Portfolio",
-    generator: 'v0.dev'
 }
 
 export default function RootLayout({
@@ -22,20 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
-        <div className="min-h-screen bg-black text-white">
-          <Starfield />
-          <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
-            <div className="relative z-10">
-              {children}
-            </div>
-            <Analytics />
-            <SpeedInsights />
-          </ThemeProvider>
-        </div>
+        <ThemeProvider attribute="class" defaultTheme="dark" enableSystem disableTransitionOnChange>
+          {children}
+          <Analytics />
+          <SpeedInsights />
+        </ThemeProvider>
       </body>
     </html>
   )
 }
-
-
-import './globals.css'

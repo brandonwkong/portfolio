@@ -17,9 +17,6 @@ module.exports = {
       },
     },
     extend: {
-      backgroundImage: {
-        'gradient-radial-strong': 'radial-gradient(circle at center, #2a2a2a 0%, #0f0f0f 70%, #000000 100%)',
-      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -69,20 +66,10 @@ module.exports = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: 0 },
         },
-        typing: {
-          "0%": { width: "0" },
-          "100%": { width: "100%" },
-        },
-        blink: {
-          "0%, 100%": { opacity: "1" },
-          "50%": { opacity: "0" },
-        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
-        typing: "typing 3.5s steps(40, end)",
-        blink: "blink 1s step-end infinite",
       },
     },
   },
