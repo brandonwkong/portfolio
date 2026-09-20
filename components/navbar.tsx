@@ -48,7 +48,7 @@ export default function Navbar() {
 
         {/* Desktop menu */}
         <ul className="hidden md:flex space-x-8">
-          {["Home", "About Me", "Portfolio"].map((item) => (
+          {["Home", "Work", "About Me"].map((item) => (
             <li key={item}>
               <Link
                 href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
@@ -64,7 +64,7 @@ export default function Navbar() {
         {isMobileMenuOpen && (
           <div className="absolute top-full left-0 w-full bg-background/95 backdrop-blur-md shadow-md py-4 md:hidden">
             <ul className="flex flex-col items-center space-y-4">
-              {["Home", "About Me", "Portfolio"].map((item) => (
+              {["Home", "Work", "About Me"].map((item) => (
                 <li key={item}>
                   <Link
                     href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}

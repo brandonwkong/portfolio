@@ -52,15 +52,7 @@ export default function Hero() {
     <section
       id="home"
       className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      style={{
-        backgroundImage: "url('/test.jpg?height=1080&width=1920')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
     >
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-black/60"></div>
-
       {/* Content */}
       <div className="container mx-auto px-4 relative z-10 text-center">
         <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">Hi I&apos;m Brandon</h1>

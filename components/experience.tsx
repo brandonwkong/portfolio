@@ -1,8 +1,9 @@
 "use client"
 
-import Image from "next/image"
-import Link from "next/link"
 import { useState } from "react"
+import Image from "next/image"
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog"
+import Constellation from "@/components/constellation"
 
 interface Company {
   name: string
@@ -13,7 +14,7 @@ interface Company {
 }
 
 const companies: Company[] = [
-    {
+  {
     name: "Royal Bank of Canada",
     logo: "/rbc.jpg",
     link: "https://www.rbc.com",
@@ -44,65 +45,73 @@ const companies: Company[] = [
   {
     name: "University of Waterloo",
     logo: "/vip.png",
-    link: "https://vip.uwaterloo.ca/",  
+    link: "https://vip.uwaterloo.ca/",
     description: "Satellite imagery and CV algorithms",
     role: "Software Developer",
   },
 ]
 
+// Crux / the Southern Cross: Gacrux (top), Acrux (bottom), Mimosa (left arm),
+// Delta Crucis (right arm), Epsilon Crucis (small offset star near the crossing)
+const positions: [number, number][] = [
+  [50, 8],
+  [50, 88],
+  [18, 52],
+  [80, 42],
+  [64, 60],
+]
+
+const edges: [number, number][] = [
+  [0, 1],
+  [2, 3],
+  [3, 4],
+]
+
 export default function Experience() {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const [selected, setSelected] = useState<Company | null>(null)
 
   return (
-    <section id="experience" className="py-20 bg-transparent">
+    <div id="experience">
+      <h2 className="sr-only">Experience</h2>
+      <Constellation
+        positions={positions}
+        edges={edges}
+        nodes={companies.map((company) => ({
+          id: company.name,
+          label: company.name,
+          sublabel: company.role,
+          onSelect: () => setSelected(company),
+        }))}
+      />
 
+      <Dialog open={selected !== null} onOpenChange={(open) => !open && setSelected(null)}>
+        {selected && (
+          <DialogContent className="sm:max-w-[500px]">
+            <DialogHeader>
+              <DialogTitle className="text-2xl">{selected.name}</DialogTitle>
+              <DialogDescription className="text-primary font-medium">{selected.role}</DialogDescription>
+            </DialogHeader>
 
-
-
-      <div className="w-full px-8 md:px-12">
-
-        <h2 className="text-4xl font-bold mb-12 text-center">
-            My Experiences
-        </h2>
-
-        <div className="flex flex-wrap items-center justify-center gap-6 md:gap-8 lg:gap-12">
-          {companies.map((company, index) => (
-            <Link
-              key={company.name}
-              href={company.link || "#"}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group relative"
-              onMouseEnter={() => setHoveredIndex(index)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <div className="absolute inset-0 rounded-lg bg-primary/20 blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div
-                className={`relative rounded-lg border border-slate-800 bg-slate-900/50 p-3 backdrop-blur-sm transition-all duration-300 group-hover:border-primary/50 group-hover:shadow-lg group-hover:border-primary/20 ${
-                  hoveredIndex === index ? "h-32 w-64 md:h-36 md:w-72 scale-110" : "h-24 w-48 md:h-28 md:w-56"
-                }`}
-              >
-                <Image
-                  src={company.logo || "/placeholder.svg"}
-                  alt={company.name}
-                  fill
-                  className="object-contain opacity-60 grayscale group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-300 p-2"
-                />
+            <div className="flex items-center gap-4 my-4">
+              <div className="relative h-16 w-16 shrink-0 rounded-md overflow-hidden bg-white/5">
+                <Image src={selected.logo} alt={selected.name} fill className="object-contain p-2" />
               </div>
+              <p className="text-white/70">{selected.description}</p>
+            </div>
 
-              <div
-                className={`absolute -bottom-28 left-1/2 -translate-x-1/2 w-48 rounded-lg border border-primary/30 bg-slate-900/95 p-3 backdrop-blur-sm transition-all duration-300 ${
-                  hoveredIndex === index ? "opacity-100 translate-y-0" : "opacity-0 translate-y-2 pointer-events-none"
-                }`}
+            {selected.link && (
+              <a
+                href={selected.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-primary hover:underline"
               >
-                <div className="text-xs text-primary font-semibold mb-1">{company.role}</div>
-                <div className="text-xs text-slate-300">{company.description}</div>
-                <div className="absolute -top-2 left-1/2 -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-4 border-l-transparent border-r-transparent border-b-primary/30" />
-              </div>
-            </Link>
-          ))}
-        </div>
-      </div>
-    </section>
+                Visit website →
+              </a>
+            )}
+          </DialogContent>
+        )}
+      </Dialog>
+    </div>
   )
 }
