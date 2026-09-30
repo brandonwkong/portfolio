@@ -57,8 +57,8 @@ export default function Experience() {
             rel="noopener noreferrer"
             className="flex items-start gap-4 group"
           >
-            <div className="relative mt-0.5 h-8 w-8 shrink-0 overflow-hidden rounded-md bg-white/5">
-              <Image src={company.logo} alt="" fill className="object-contain p-1" />
+            <div className="relative mt-0.5 h-14 w-14 shrink-0 overflow-hidden rounded-md">
+              <Image src={company.logo} alt="" fill className="object-contain" />
             </div>
             <div className="min-w-0">
               <div className="flex items-baseline justify-between gap-4">
