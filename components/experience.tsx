@@ -3,6 +3,7 @@ import Image from "next/image"
 interface Company {
   name: string
   role: string
+  dates: string
   description?: string
   logo: string
   link?: string
@@ -12,6 +13,7 @@ const companies: Company[] = [
   {
     name: "Tesla",
     role: "Software Engineer Intern",
+    dates: "Fall 2026",
     description: "Service organization model training and oragnization wide infrastructure",
     logo: "/tesla.jpg",
     link: 'https://www.tesla.com/'
@@ -19,6 +21,7 @@ const companies: Company[] = [
   {
     name: "Royal Bank of Canada",
     role: "Software Engineer Intern, AI",
+    dates: "Summer 2026",
     description: "GenAI systems + ML pipelines",
     logo: "/rbc.png",
     link: "https://www.rbc.com",
@@ -26,6 +29,7 @@ const companies: Company[] = [
   {
     name: "Rogers Communications",
     role: "Machine Learning Intern",
+    dates: "Fall 2025",
     description: "Multi-agent systems and ML pipelines",
     logo: "/rogers.png",
     link: "https://www.rogers.com",
@@ -33,6 +37,7 @@ const companies: Company[] = [
   {
     name: "Kisoji",
     role: "Machine Learning Engineer Intern",
+    dates: "Summer 2025",
     description: "AI antibody generation and cancer research",
     logo: "/kisoji.png",
     link: "https://www.kisojibiotech.com/",
@@ -40,6 +45,7 @@ const companies: Company[] = [
   {
     name: "Adanomad",
     role: "Software Engineer Intern",
+    dates: "Winter 2025",
     description: "Digital innovation and agentic systems",
     logo: "/adanomad.png",
     link: "https://adanomad.com",
@@ -47,6 +53,7 @@ const companies: Company[] = [
   {
     name: "University of Waterloo",
     role: "Software Developer",
+    dates: "Summer 2024",
     description: "Satellite imagery and CV algorithms",
     logo: "/vip.png",
     link: "https://vip.uwaterloo.ca/",
@@ -76,6 +83,7 @@ export default function Experience() {
                   </h3>
                   <span className="text-sm text-white/40 whitespace-nowrap">{company.role}</span>
                 </div>
+                <div className="text-right text-xs text-white/30">{company.dates}</div>
                 {company.description && (
                   <p className="mt-1 text-sm text-white/50">{company.description}</p>
                 )}

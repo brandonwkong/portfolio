@@ -16,7 +16,7 @@ export default function Navbar({
 
   return (
     <nav className="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur">
-      <div className="mx-auto flex max-w-2xl items-center justify-between px-6 py-4">
+      <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
         <span className="text-sm font-medium text-white/90">Brandon Kong</span>
         <div className="flex gap-6">
           {tabs.map((tab) => (

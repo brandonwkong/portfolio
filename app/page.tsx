@@ -28,9 +28,9 @@ export default function Home() {
     <main className="min-h-screen bg-black text-white">
       <Navbar active={active} onChange={handleChange} />
 
-      <div className="mx-auto max-w-2xl px-6 py-16">
+      <div className="mx-auto max-w-3xl px-6 py-16">
         <h1 className="text-2xl font-semibold">Brandon Kong</h1>
-        <p className="mt-2 text-white/50">Computer Engineering student at the University of Waterloo.</p>
+        <p className="mt-2 text-white/50">3rd-year Computer Engineering student at the University of Waterloo working at the intersection of AI and software. Interested in distributed systems, scaling, and all things AI!</p>
 
         <div className="mt-12">
           <h2 className="text-sm font-medium uppercase tracking-wide text-white/40">
