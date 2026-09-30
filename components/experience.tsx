@@ -12,13 +12,14 @@ const companies: Company[] = [
   {
     name: "Tesla",
     role: "Software Engineer Intern",
-    logo: "/tesla.png",
+    description: "Service organization model training and oragnization wide infrastructure",
+    logo: "/tesla.jpg",
   },
   {
     name: "Royal Bank of Canada",
     role: "Software Engineer Intern, AI",
     description: "GenAI systems + ML pipelines",
-    logo: "/rbc.jpg",
+    logo: "/rbc.png",
     link: "https://www.rbc.com",
   },
   {
@@ -30,14 +31,14 @@ const companies: Company[] = [
   },
   {
     name: "Kisoji",
-    role: "MLE Intern",
+    role: "Machine Learning Engineer Intern",
     description: "AI antibody generation and cancer research",
     logo: "/kisoji.png",
     link: "https://www.kisojibiotech.com/",
   },
   {
     name: "Adanomad",
-    role: "SWE",
+    role: "Software Engineer Intern",
     description: "Digital innovation and agentic systems",
     logo: "/adanomad.png",
     link: "https://adanomad.com",
@@ -64,8 +65,8 @@ export default function Experience() {
                 : {})}
               className="flex items-start gap-4 group"
             >
-              <div className="relative mt-0.5 h-14 w-14 shrink-0 overflow-hidden rounded-md">
-                <Image src={company.logo} alt="" fill className="object-contain" />
+              <div className="relative mt-0.5 h-20 w-20 shrink-0 overflow-hidden rounded-md">
+                <Image src={company.logo} alt="" fill sizes="80px" className="object-contain" />
               </div>
               <div className="min-w-0">
                 <div className="flex items-baseline justify-between gap-4">
