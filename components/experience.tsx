@@ -14,6 +14,7 @@ const companies: Company[] = [
     role: "Software Engineer Intern",
     description: "Service organization model training and oragnization wide infrastructure",
     logo: "/tesla.jpg",
+    link: 'https://www.tesla.com/'
   },
   {
     name: "Royal Bank of Canada",
@@ -68,7 +69,7 @@ export default function Experience() {
               <div className="relative mt-0.5 h-20 w-20 shrink-0 overflow-hidden rounded-md">
                 <Image src={company.logo} alt="" fill sizes="80px" className="object-contain" />
               </div>
-              <div className="min-w-0">
+              <div className="min-w-0 flex-1">
                 <div className="flex items-baseline justify-between gap-4">
                   <h3 className="text-white group-hover:text-white/70 transition-colors">
                     {company.name}
