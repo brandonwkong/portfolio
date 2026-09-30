@@ -1,16 +1,32 @@
 "use client"
 
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Navbar, { type Tab } from "@/components/navbar"
 import Experience from "@/components/experience"
 import Portfolio from "@/components/portfolio"
 
+function tabFromHash(): Tab {
+  return typeof window !== "undefined" && window.location.hash === "#projects" ? "projects" : "experience"
+}
+
 export default function Home() {
   const [active, setActive] = useState<Tab>("experience")
 
+  useEffect(() => {
+    setActive(tabFromHash())
+    const onHashChange = () => setActive(tabFromHash())
+    window.addEventListener("hashchange", onHashChange)
+    return () => window.removeEventListener("hashchange", onHashChange)
+  }, [])
+
+  const handleChange = (tab: Tab) => {
+    setActive(tab)
+    window.location.hash = tab === "projects" ? "projects" : "experience"
+  }
+
   return (
     <main className="min-h-screen bg-black text-white">
-      <Navbar active={active} onChange={setActive} />
+      <Navbar active={active} onChange={handleChange} />
 
       <div className="mx-auto max-w-2xl px-6 py-16">
         <h1 className="text-2xl font-semibold">Brandon Kong</h1>
