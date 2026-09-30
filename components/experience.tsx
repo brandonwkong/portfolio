@@ -83,10 +83,14 @@ export default function Experience() {
                   </h3>
                   <span className="text-sm text-white/40 whitespace-nowrap">{company.role}</span>
                 </div>
-                <div className="text-right text-xs text-white/30">{company.dates}</div>
-                {company.description && (
-                  <p className="mt-1 text-sm text-white/50">{company.description}</p>
-                )}
+                <div className="mt-1 flex items-baseline justify-between gap-4">
+                  {company.description ? (
+                    <p className="text-sm text-white/50">{company.description}</p>
+                  ) : (
+                    <span />
+                  )}
+                  <span className="text-sm text-white/50 whitespace-nowrap">{company.dates}</span>
+                </div>
               </div>
             </Wrapper>
           </li>
