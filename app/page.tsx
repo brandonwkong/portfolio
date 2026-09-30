@@ -32,7 +32,12 @@ export default function Home() {
         <h1 className="text-2xl font-semibold">Brandon Kong</h1>
         <p className="mt-2 text-white/50">Computer Engineering student at the University of Waterloo.</p>
 
-        <div className="mt-12">{active === "experience" ? <Experience /> : <Portfolio />}</div>
+        <div className="mt-12">
+          <h2 className="text-sm font-medium uppercase tracking-wide text-white/40">
+            {active === "experience" ? "Experience" : "Projects"}
+          </h2>
+          <div className="mt-4">{active === "experience" ? <Experience /> : <Portfolio />}</div>
+        </div>
 
         <footer className="mt-16 flex gap-6 border-t border-white/10 pt-8 text-sm text-white/40">
           <a href="https://github.com/brandonwkong" className="hover:text-white transition-colors">
@@ -46,9 +51,6 @@ export default function Home() {
           </a>
           <a href="mailto:b2kong@uwaterloo.ca" className="hover:text-white transition-colors">
             Email
-          </a>
-          <a href="/Resume_BrandonKong.pdf" download className="hover:text-white transition-colors">
-            Resume
           </a>
         </footer>
       </div>
