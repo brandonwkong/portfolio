@@ -3,15 +3,20 @@ import Image from "next/image"
 interface Company {
   name: string
   role: string
-  description: string
+  description?: string
   logo: string
   link?: string
 }
 
 const companies: Company[] = [
   {
+    name: "Tesla",
+    role: "Software Engineer Intern",
+    logo: "/tesla.png",
+  },
+  {
     name: "Royal Bank of Canada",
-    role: "AI Intern",
+    role: "Software Engineer Intern, AI",
     description: "GenAI systems + ML pipelines",
     logo: "/rbc.jpg",
     link: "https://www.rbc.com",
@@ -25,14 +30,14 @@ const companies: Company[] = [
   },
   {
     name: "Kisoji",
-    role: "Machine Learning Engineer",
+    role: "MLE Intern",
     description: "AI antibody generation and cancer research",
     logo: "/kisoji.png",
     link: "https://www.kisojibiotech.com/",
   },
   {
     name: "Adanomad",
-    role: "AI Full Stack Software Engineer",
+    role: "SWE",
     description: "Digital innovation and agentic systems",
     logo: "/adanomad.png",
     link: "https://adanomad.com",
@@ -49,29 +54,34 @@ const companies: Company[] = [
 export default function Experience() {
   return (
     <ul className="divide-y divide-white/10">
-      {companies.map((company) => (
-        <li key={company.name} className="py-5">
-          <a
-            href={company.link}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-start gap-4 group"
-          >
-            <div className="relative mt-0.5 h-14 w-14 shrink-0 overflow-hidden rounded-md">
-              <Image src={company.logo} alt="" fill className="object-contain" />
-            </div>
-            <div className="min-w-0">
-              <div className="flex items-baseline justify-between gap-4">
-                <h3 className="text-white group-hover:text-white/70 transition-colors">
-                  {company.name}
-                </h3>
-                <span className="text-sm text-white/40 whitespace-nowrap">{company.role}</span>
+      {companies.map((company) => {
+        const Wrapper = company.link ? "a" : "div"
+        return (
+          <li key={company.name} className="py-5">
+            <Wrapper
+              {...(company.link
+                ? { href: company.link, target: "_blank", rel: "noopener noreferrer" }
+                : {})}
+              className="flex items-start gap-4 group"
+            >
+              <div className="relative mt-0.5 h-14 w-14 shrink-0 overflow-hidden rounded-md">
+                <Image src={company.logo} alt="" fill className="object-contain" />
               </div>
-              <p className="mt-1 text-sm text-white/50">{company.description}</p>
-            </div>
-          </a>
-        </li>
-      ))}
+              <div className="min-w-0">
+                <div className="flex items-baseline justify-between gap-4">
+                  <h3 className="text-white group-hover:text-white/70 transition-colors">
+                    {company.name}
+                  </h3>
+                  <span className="text-sm text-white/40 whitespace-nowrap">{company.role}</span>
+                </div>
+                {company.description && (
+                  <p className="mt-1 text-sm text-white/50">{company.description}</p>
+                )}
+              </div>
+            </Wrapper>
+          </li>
+        )
+      })}
     </ul>
   )
 }
