@@ -1,7 +1,10 @@
+import Image from "next/image"
+
 interface Company {
   name: string
   role: string
   description: string
+  logo: string
   link?: string
 }
 
@@ -10,30 +13,35 @@ const companies: Company[] = [
     name: "Royal Bank of Canada",
     role: "AI Intern",
     description: "GenAI systems + ML pipelines",
+    logo: "/rbc.jpg",
     link: "https://www.rbc.com",
   },
   {
     name: "Rogers Communications",
     role: "Machine Learning Intern",
     description: "Multi-agent systems and ML pipelines",
+    logo: "/rogers.png",
     link: "https://www.rogers.com",
   },
   {
     name: "Kisoji",
     role: "Machine Learning Engineer",
     description: "AI antibody generation and cancer research",
+    logo: "/kisoji.png",
     link: "https://www.kisojibiotech.com/",
   },
   {
     name: "Adanomad",
     role: "AI Full Stack Software Engineer",
     description: "Digital innovation and agentic systems",
+    logo: "/adanomad.png",
     link: "https://adanomad.com",
   },
   {
     name: "University of Waterloo",
     role: "Software Developer",
     description: "Satellite imagery and CV algorithms",
+    logo: "/vip.png",
     link: "https://vip.uwaterloo.ca/",
   },
 ]
@@ -47,15 +55,20 @@ export default function Experience() {
             href={company.link}
             target="_blank"
             rel="noopener noreferrer"
-            className="block group"
+            className="flex items-start gap-4 group"
           >
-            <div className="flex items-baseline justify-between gap-4">
-              <h3 className="text-white group-hover:text-white/70 transition-colors">
-                {company.name}
-              </h3>
-              <span className="text-sm text-white/40 whitespace-nowrap">{company.role}</span>
+            <div className="relative mt-0.5 h-8 w-8 shrink-0 overflow-hidden rounded-md bg-white/5">
+              <Image src={company.logo} alt="" fill className="object-contain p-1" />
             </div>
-            <p className="mt-1 text-sm text-white/50">{company.description}</p>
+            <div className="min-w-0">
+              <div className="flex items-baseline justify-between gap-4">
+                <h3 className="text-white group-hover:text-white/70 transition-colors">
+                  {company.name}
+                </h3>
+                <span className="text-sm text-white/40 whitespace-nowrap">{company.role}</span>
+              </div>
+              <p className="mt-1 text-sm text-white/50">{company.description}</p>
+            </div>
           </a>
         </li>
       ))}
