@@ -77,5 +77,26 @@
 }
 
 html {
-  background-color: #000000;
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  background: linear-gradient(90deg, #202c47 0%, #3a5278 24%, #5c7a9c 46%, #8fb4ce 70%, #d6ecf8 100%);
+  min-height: 100%;
+}
+
+section[id] {
+  scroll-margin-top: 96px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+  html {
+    scroll-behavior: auto;
+  }
 }

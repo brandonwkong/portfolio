@@ -1,37 +1,60 @@
 "use client"
 
-export type Tab = "experience" | "projects"
+import { useState } from "react"
+import { Menu, X } from "lucide-react"
 
-export default function Navbar({
-  active,
-  onChange,
-}: {
-  active: Tab
-  onChange: (tab: Tab) => void
-}) {
-  const tabs: { id: Tab; label: string }[] = [
-    { id: "experience", label: "Experience" },
-    { id: "projects", label: "Projects" },
-  ]
+const links = [
+  { href: "#home", label: "Home" },
+  { href: "#experience", label: "Experience" },
+  { href: "#skills", label: "Skills" },
+]
+
+export default function Navbar() {
+  const [open, setOpen] = useState(false)
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-white/10 bg-black/80 backdrop-blur">
-      <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
-        <span className="text-sm font-medium text-white/90">Brandon Kong</span>
-        <div className="flex gap-6">
-          {tabs.map((tab) => (
-            <button
-              key={tab.id}
-              onClick={() => onChange(tab.id)}
-              className={`text-sm transition-colors ${
-                active === tab.id ? "text-white" : "text-white/40 hover:text-white/70"
-              }`}
+    <nav className="relative z-50">
+      <div className="flex items-center justify-between gap-4 px-6 py-8 sm:px-12 lg:px-24">
+        <a href="#home" className="shrink-0 text-3xl font-bold text-white sm:text-4xl">
+          Brandon Kong
+        </a>
+
+        <div className="hidden items-center gap-10 lg:flex">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              className="text-xl font-medium text-white/80 transition-colors hover:text-white sm:text-2xl"
             >
-              {tab.label}
-            </button>
+              {link.label}
+            </a>
           ))}
         </div>
+
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          className="text-white lg:hidden"
+          aria-label="Toggle navigation menu"
+        >
+          {open ? <X size={32} /> : <Menu size={32} />}
+        </button>
       </div>
+
+      {open && (
+        <div className="flex flex-col gap-4 px-6 pb-6 lg:hidden">
+          {links.map((link) => (
+            <a
+              key={link.href}
+              href={link.href}
+              onClick={() => setOpen(false)}
+              className="text-xl font-medium text-white/80 transition-colors hover:text-white"
+            >
+              {link.label}
+            </a>
+          ))}
+        </div>
+      )}
     </nav>
   )
 }
